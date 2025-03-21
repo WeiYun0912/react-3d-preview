@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 全局樣式修復 touch-action 問題 */
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    touch-action: none; /* 防止瀏覽器默認觸控行為 */
+    overscroll-behavior: none; /* 防止過度滾動行為 */
+}
+
+/* 為所有Three.js元素設置touch-action */
+canvas {
+    touch-action: none !important;
+    outline: none;
+}
+
+/* 確保3D容器元素正確設置觸控樣式 */
+#root {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+
+/* 讓相機控制元素可拖動 */
+.camera-controls {
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 自定義一個工具提示樣式 */
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 1000;
+    transition: opacity 0.2s;
+}
